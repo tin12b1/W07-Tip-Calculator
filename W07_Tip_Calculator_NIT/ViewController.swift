@@ -16,7 +16,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var resultTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var tipResultTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var totalTopConstraint: NSLayoutConstraint!
-
+    @IBOutlet weak var btnCalculateLeftConstraint: NSLayoutConstraint!
+    @IBOutlet weak var btnCalculateRightConstraint: NSLayoutConstraint!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,28 +39,34 @@ class ViewController: UIViewController {
             tipTopConstraint.constant = 30
             numberTopConstraint.constant = 30
             btnCalculateTopConstraint.constant = 30
+            btnCalculateLeftConstraint.constant = 80
+            btnCalculateRightConstraint.constant = 80
             resultTopConstraint.constant = 30
             tipResultTopConstraint.constant = 30
             totalTopConstraint.constant = 30
         case .portraitUpsideDown:
             text="PortraitUpsideDown"
         case .landscapeLeft:
-            billTopConstraint.constant -= 30
-            tipTopConstraint.constant -= 20
-            numberTopConstraint.constant -= 20
-            btnCalculateTopConstraint.constant -= 20
-            resultTopConstraint.constant -= 20
-            tipResultTopConstraint.constant -= 20
-            totalTopConstraint.constant -= 20
+            billTopConstraint.constant = 10
+            tipTopConstraint.constant = 10
+            numberTopConstraint.constant = 10
+            btnCalculateTopConstraint.constant = 10
+            btnCalculateLeftConstraint.constant = 222
+            btnCalculateRightConstraint.constant = 222
+            resultTopConstraint.constant = 10
+            tipResultTopConstraint.constant = 10
+            totalTopConstraint.constant = 10
             text="LandscapeLeft"
         case .landscapeRight:
-            billTopConstraint.constant -= 30
-            tipTopConstraint.constant -= 20
-            numberTopConstraint.constant -= 20
-            btnCalculateTopConstraint.constant -= 20
-            resultTopConstraint.constant -= 20
-            tipResultTopConstraint.constant -= 20
-            totalTopConstraint.constant -= 20
+            billTopConstraint.constant = 10
+            tipTopConstraint.constant = 10
+            numberTopConstraint.constant = 10
+            btnCalculateTopConstraint.constant = 10
+            btnCalculateLeftConstraint.constant = 222
+            btnCalculateRightConstraint.constant = 222
+            resultTopConstraint.constant = 10
+            tipResultTopConstraint.constant = 10
+            totalTopConstraint.constant = 10
             text="LandscapeRight"
         default:
             text="Another"

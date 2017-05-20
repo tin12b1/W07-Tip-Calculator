@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="3iz-dg-Ghs">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="3iz-dg-Ghs">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -145,6 +145,8 @@
                     <navigationItem key="navigationItem" title="Tip Calculator" id="CDy-hQ-bHD"/>
                     <connections>
                         <outlet property="billTopConstraint" destination="kz0-yW-tlj" id="6GO-md-XZW"/>
+                        <outlet property="btnCalculateLeftConstraint" destination="6VH-ja-1P2" id="rmD-px-gLz"/>
+                        <outlet property="btnCalculateRightConstraint" destination="Knm-vx-ezW" id="QF2-S4-P7c"/>
                         <outlet property="btnCalculateTopConstraint" destination="10E-hu-6Bi" id="zCW-gi-9HX"/>
                         <outlet property="numberTopConstraint" destination="8Zl-gC-UIh" id="AVw-xQ-iKp"/>
                         <outlet property="resultTopConstraint" destination="Mgg-oO-2s2" id="wlo-co-2Yp"/>
