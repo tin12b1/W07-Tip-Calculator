@@ -9,6 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
+    // Constraints
     @IBOutlet weak var billTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var tipTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var numberTopConstraint: NSLayoutConstraint!
@@ -18,6 +19,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var totalTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var btnCalculateLeftConstraint: NSLayoutConstraint!
     @IBOutlet weak var btnCalculateRightConstraint: NSLayoutConstraint!
+    //
+    @IBOutlet var txtBillAmount: UITextField!
+    @IBOutlet var lblTipAmount: UILabel!
+    @IBOutlet var lblTipResult: UILabel!
+    @IBOutlet var lblTotal: UILabel!
+
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
