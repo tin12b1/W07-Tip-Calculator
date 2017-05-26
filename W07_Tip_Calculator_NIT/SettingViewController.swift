@@ -8,15 +8,22 @@
 
 import UIKit
 
-class SettingViewController: UIViewController {
+class SettingViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     @IBOutlet var lblTitleTopConstraint: NSLayoutConstraint!
     @IBOutlet var pickerViewTopConstraint: NSLayoutConstraint!
     @IBOutlet var btnSaveTopConstraint: NSLayoutConstraint!
     @IBOutlet var btnSaveBottomConstraint: NSLayoutConstraint!
-
+    @IBOutlet weak var pickerView: UIPickerView!
+    
+    var tipAmount = [5, 10, 15]
+    var temp: Int?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        title = "Setting"
+        pickerView.dataSource = self
+        pickerView.delegate = self
+        temp = 5
         // Do any additional setup after loading the view.
     }
 
@@ -25,7 +32,27 @@ class SettingViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return tipAmount.count
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return String(tipAmount[row])
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        temp = tipAmount[row]
+    }
+    
+    @IBAction func btnSave(_ sender: Any) {
+        UserDefaults.standard.set(temp, forKey: "tipKey")
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     /*
     // MARK: - Navigation
 

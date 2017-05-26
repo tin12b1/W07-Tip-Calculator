@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="3iz-dg-Ghs">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="3iz-dg-Ghs">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -66,6 +66,9 @@
                                     <color key="titleColor" red="1" green="0.0" blue="0.093322322275342984" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="btnCalculateClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="N6u-ei-sZU"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RESULT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="eMR-d6-oAw">
                                 <rect key="frame" x="70" y="465" width="274" height="67"/>
@@ -143,24 +146,14 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Tip Calculator" id="CDy-hQ-bHD">
-                        <barButtonItem key="leftBarButtonItem" id="0ZG-PL-JAL">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="F9d-91-Aez">
-                                <rect key="frame" x="20" y="7" width="83" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="History"/>
-                            </button>
+                        <barButtonItem key="leftBarButtonItem" title="History" id="0ZG-PL-JAL">
                             <connections>
-                                <segue destination="M3A-dP-5Fb" kind="show" id="Ibb-1Q-YRd"/>
+                                <segue destination="M3A-dP-5Fb" kind="show" identifier="history" id="Ibb-1Q-YRd"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" id="tWy-Tm-gbw">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="gFl-8a-UBg">
-                                <rect key="frame" x="311" y="7" width="83" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Setting"/>
-                            </button>
+                        <barButtonItem key="rightBarButtonItem" title="Setting" id="tWy-Tm-gbw">
                             <connections>
-                                <segue destination="N3Y-EQ-abR" kind="show" id="Faa-Ow-wP8"/>
+                                <segue destination="N3Y-EQ-abR" kind="show" identifier="setting" id="Faa-Ow-wP8"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -197,7 +190,7 @@
                                 <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Y51-O6-wAn" id="LSC-Nz-i58">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -225,17 +218,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SET TIP AMOUNT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ic-wB-IyX">
-                                <rect key="frame" x="30" y="114" width="354" height="72"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <nil key="textColor"/>
+                                <rect key="frame" x="30" y="113.99999999999999" width="354" height="71.666666666666643"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Ao-Jg-Zrq">
-                                <rect key="frame" x="20" y="216" width="374" height="358"/>
+                                <rect key="frame" x="20" y="215.66666666666663" width="374" height="358.66666666666674"/>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sh9-Fg-AEs">
-                                <rect key="frame" x="100" y="614" width="214" height="72"/>
+                                <rect key="frame" x="100" y="614.33333333333348" width="214" height="71.666666666666629"/>
+                                <color key="backgroundColor" red="0.87560513019999997" green="1" blue="0.38727328459999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <state key="normal" title="SAVE"/>
+                                <connections>
+                                    <action selector="btnSave:" destination="N3Y-EQ-abR" eventType="touchUpInside" id="dZu-PO-keh"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -260,6 +258,7 @@
                         <outlet property="btnSaveBottomConstraint" destination="VcS-cp-gPf" id="8U8-ft-2IR"/>
                         <outlet property="btnSaveTopConstraint" destination="bzV-Jy-5wU" id="MXK-LR-gMv"/>
                         <outlet property="lblTitleTopConstraint" destination="9uw-JW-pBO" id="cSf-VC-2ao"/>
+                        <outlet property="pickerView" destination="3Ao-Jg-Zrq" id="fUz-4a-tCv"/>
                         <outlet property="pickerViewTopConstraint" destination="uB0-8I-6Ek" id="3hN-h1-AMy"/>
                     </connections>
                 </viewController>

@@ -24,18 +24,90 @@ class ViewController: UIViewController {
     @IBOutlet var lblTipAmount: UILabel!
     @IBOutlet var lblTipResult: UILabel!
     @IBOutlet var lblTotal: UILabel!
-
-    
+    //
+    var tipAmount: Int?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        lblTipResult.isHidden = true
+        lblTotal.isHidden = true
+        txtBillAmount.keyboardType = UIKeyboardType.decimalPad
+        if let temp = UserDefaults.standard.object(forKey: "tipKey") as? Int {
+            lblTipAmount.text = String(temp)
+            tipAmount = temp
+        }else {
+            lblTipAmount.text = "5"
+            tipAmount = 5
+        }
         // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if let temp = UserDefaults.standard.object(forKey: "tipKey") as? Int {
+            lblTipAmount.text = String(temp)
+            tipAmount = temp
+        }
+        txtBillAmount.text?.removeAll()
+        lblTipResult.isHidden = true
+        lblTotal.isHidden = true
+    }
+    @IBAction func btnCalculateClick(_ sender: Any) {
+        if txtBillAmount.text!.isEmpty {
+            // Thong bao nhap thieu thong tin
+            let alert = UIAlertController(title: "Error", message: "You must input Bill Amount!", preferredStyle: UIAlertControllerStyle.alert);
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil));
+            self.present(alert, animated: true, completion: nil);
+        }
+        else {
+            let billAmount: Double = Double(txtBillAmount.text!)!
+            let tipResult = billAmount * Double(tipAmount!) / 100
+            lblTipResult.text = "\(tipResult)"
+            lblTipResult.isHidden = false
+            let totalAmount = billAmount + tipResult
+            lblTotal.text = "\(totalAmount)"
+            lblTotal.isHidden = false
+            view.endEditing(true)
+        }
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let inverseSet = NSCharacterSet(charactersIn:"0123456789").inverted
+        
+        let components = string.components(separatedBy: inverseSet)
+        
+        let filtered = components.joined(separator: "")
+        
+        if filtered == string {
+            return true
+        } else {
+            if string == "." {
+                let countdots = txtBillAmount.text!.components(separatedBy:".").count - 1
+                if countdots == 0 {
+                    return true
+                }else{
+                    if countdots > 0 && string == "." {
+                        return false
+                    } else {
+                        return true
+                    }
+                }
+            }else{
+                if string == "-" {
+                    if (txtBillAmount.text!.isEmpty == true){
+                        return true
+                    } else {
+                        return false
+                    }
+                } else {
+                    return false
+                }
+            }
+        }
     }
 
     override func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation) {
