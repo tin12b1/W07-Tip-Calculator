@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		40E85F301ED49F0F0005EEF9 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E85F2F1ED49F0F0005EEF9 /* SettingViewController.swift */; };
+		745314511ED975EE008D9674 /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745314501ED975EE008D9674 /* HistoryTableViewController.swift */; };
+		745314531ED97628008D9674 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745314521ED97628008D9674 /* HistoryTableViewCell.swift */; };
+		745314551ED97A3A008D9674 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745314541ED97A3A008D9674 /* History.swift */; };
 		74CF3D6F1ECE9725006AAAF8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CF3D6E1ECE9725006AAAF8 /* AppDelegate.swift */; };
 		74CF3D711ECE9725006AAAF8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CF3D701ECE9725006AAAF8 /* ViewController.swift */; };
 		74CF3D741ECE9725006AAAF8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74CF3D721ECE9725006AAAF8 /* Main.storyboard */; };
@@ -37,6 +40,9 @@
 
 /* Begin PBXFileReference section */
 		40E85F2F1ED49F0F0005EEF9 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		745314501ED975EE008D9674 /* HistoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
+		745314521ED97628008D9674 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
+		745314541ED97A3A008D9674 /* History.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 		74CF3D6B1ECE9724006AAAF8 /* W07_Tip_Calculator_NIT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = W07_Tip_Calculator_NIT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74CF3D6E1ECE9725006AAAF8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		74CF3D701ECE9725006AAAF8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +115,9 @@
 				74CF3D7D1ECE9725006AAAF8 /* Info.plist */,
 				74CF3D751ECE9725006AAAF8 /* W07_Tip_Calculator_NIT.xcdatamodeld */,
 				40E85F2F1ED49F0F0005EEF9 /* SettingViewController.swift */,
+				745314501ED975EE008D9674 /* HistoryTableViewController.swift */,
+				745314521ED97628008D9674 /* HistoryTableViewCell.swift */,
+				745314541ED97A3A008D9674 /* History.swift */,
 			);
 			path = W07_Tip_Calculator_NIT;
 			sourceTree = "<group>";
@@ -265,10 +274,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				745314531ED97628008D9674 /* HistoryTableViewCell.swift in Sources */,
 				74CF3D771ECE9725006AAAF8 /* W07_Tip_Calculator_NIT.xcdatamodeld in Sources */,
+				745314551ED97A3A008D9674 /* History.swift in Sources */,
 				74CF3D711ECE9725006AAAF8 /* ViewController.swift in Sources */,
 				74CF3D6F1ECE9725006AAAF8 /* AppDelegate.swift in Sources */,
 				40E85F301ED49F0F0005EEF9 /* SettingViewController.swift in Sources */,
+				745314511ED975EE008D9674 /* HistoryTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

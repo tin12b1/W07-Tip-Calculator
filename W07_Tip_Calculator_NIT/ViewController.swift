@@ -31,6 +31,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         lblTipResult.isHidden = true
         lblTotal.isHidden = true
+        
         txtBillAmount.keyboardType = UIKeyboardType.decimalPad
         if let temp = UserDefaults.standard.object(forKey: "tipKey") as? Int {
             lblTipAmount.text = String(temp)
@@ -56,6 +57,15 @@ class ViewController: UIViewController {
         lblTipResult.isHidden = true
         lblTotal.isHidden = true
     }
+    
+    func getCurrentDate() -> String {
+        let currentDate = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd-MM-yyyy"
+        let date = formatter.string(from: currentDate)
+        return date
+    }
+    
     @IBAction func btnCalculateClick(_ sender: Any) {
         if txtBillAmount.text!.isEmpty {
             // Thong bao nhap thieu thong tin
@@ -64,15 +74,22 @@ class ViewController: UIViewController {
             self.present(alert, animated: true, completion: nil);
         }
         else {
-            let billAmount: Double = Double(txtBillAmount.text!)!
-            let tipResult = billAmount * Double(tipAmount!) / 100
-            lblTipResult.text = "\(tipResult)"
+            let result = calculate()
+            lblTipResult.text = "\(result[0])"
             lblTipResult.isHidden = false
-            let totalAmount = billAmount + tipResult
-            lblTotal.text = "\(totalAmount)"
+            lblTotal.text = "\(result[1])"
             lblTotal.isHidden = false
             view.endEditing(true)
+            // Save history
+
         }
+    }
+    
+    func calculate() -> [Double] {
+        let billAmount: Double = Double(txtBillAmount.text!)!
+        let tipResult = billAmount * Double(tipAmount!) / 100
+        let totalAmount = billAmount + tipResult
+        return [tipResult, totalAmount, billAmount, Double(tipAmount!)]
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
