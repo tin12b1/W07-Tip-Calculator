@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ViewController: UIViewController {
     // Constraints
@@ -80,7 +81,32 @@ class ViewController: UIViewController {
             lblTotal.text = "\(result[1])"
             lblTotal.isHidden = false
             view.endEditing(true)
+            let date = getCurrentDate()
             // Save history
+            // 1
+            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+                    return
+            }
+            let managedContext = appDelegate.persistentContainer.viewContext
+            
+            // 2
+            let entity = NSEntityDescription.entity(forEntityName: "History", in: managedContext)!
+            
+            let history = NSManagedObject(entity: entity, insertInto: managedContext)
+            
+            // 3
+            history.setValue(date, forKeyPath: "date")
+            history.setValue(result[0], forKeyPath: "tipResult")
+            history.setValue(result[1], forKeyPath: "total")
+            history.setValue(result[2], forKeyPath: "billAmount")
+            history.setValue(result[3], forKeyPath: "tipAmount")
+            
+            // 4
+            do {
+                try managedContext.save()
+            } catch let error as NSError {
+                print("Could not save. \(error), \(error.userInfo)")
+            }
 
         }
     }

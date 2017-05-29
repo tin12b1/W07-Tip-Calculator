@@ -7,13 +7,27 @@
 //
 
 import UIKit
+import CoreData
 
 class HistoryTableViewController: UITableViewController {
 
+    var historyList: [NSManagedObject] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "History")
+        request.returnsObjectsAsFaults = false
         
+        do {
+            let results = try context.fetch(request)
+            for result in results{
+                historyList.append(result as! NSManagedObject)
+            }
+        } catch {
+            print("Error")
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,14 +44,25 @@ class HistoryTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return historyList.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! HistoryTableViewCell
+        let history = historyList[indexPath.row]
+        cell.lblDate.text = history.value(forKeyPath: "date") as? String
+        if let billAmount = history.value(forKeyPath: "billAmount") {
+            cell.lblBillAmount.text = "Bill Amount: \(billAmount)"
+        }
+        if let tipAmount = history.value(forKeyPath: "tipAmount") {
+            cell.lblTipAmount.text =  "Tip Amount: \(tipAmount)"
+        }
+        if let tipResult = history.value(forKeyPath: "tipResult") {
+            cell.lblTipResult.text = "Tip Result: \(tipResult)"
+        }
+        if let totalAmount = history.value(forKeyPath: "total") {
+            cell.lblTotalAmount.text = "Total Amount: \(totalAmount)"
+        }
         return cell
     }
 
